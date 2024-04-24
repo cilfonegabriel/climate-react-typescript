@@ -1,10 +1,11 @@
 import { countries } from "../../data/countries";
+import styles from "./Form.module.css"
 
 export default function Form() {
   return (
-    <form>
-      <div>
-        <label htmlFor="city"></label>
+    <form className={styles.form}>
+      <div className={styles.field}>
+        <label htmlFor="city">City: </label>
         <input
             id="city" 
             type="text" 
@@ -13,8 +14,8 @@ export default function Form() {
         />
       </div>
 
-      <div>
-        <label htmlFor="country"></label>
+      <div className={styles.field}>
+        <label htmlFor="country">County: </label>
         <select>
             <option value="">-- Seleccione un País --</option>
                 {countries.map(country => (
@@ -23,10 +24,10 @@ export default function Form() {
                         key={country.code}
                     >{country.name}</option>
                 ))}
-        </select>
+        </select>y
       </div>
 
-      <input type="submit" value="Consultar Clima" />
+      <input className={styles.submit} type="submit" value="Consultar Clima" />
     </form>
   )
 }
