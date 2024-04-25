@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import type { SearchType } from "../../types";
 import { countries } from "../../data/countries";
 import styles from "./Form.module.css"
@@ -17,8 +17,19 @@ export default function Form() {
     })
   }
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    if (Object.values(search).includes('')){
+      console.log("Si hay campos vacios...")
+    }
+  }
+
   return (
-    <form className={styles.form}>
+    <form 
+      className={styles.form}
+      onSubmit={handleSubmit}
+    >
       <div className={styles.field}>
         <label htmlFor="city">City: </label>
         <input
