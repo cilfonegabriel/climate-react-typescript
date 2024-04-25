@@ -1,7 +1,14 @@
+import { useState } from "react";
+import type { SearchType } from "../../types";
 import { countries } from "../../data/countries";
 import styles from "./Form.module.css"
 
 export default function Form() {
+
+  const [search, setSearch] =useState<SearchType>({
+    city : '',
+    country : '',
+  })
   return (
     <form className={styles.form}>
       <div className={styles.field}>
@@ -24,7 +31,7 @@ export default function Form() {
                         key={country.code}
                     >{country.name}</option>
                 ))}
-        </select>y
+        </select>
       </div>
 
       <input className={styles.submit} type="submit" value="Consultar Clima" />
