@@ -16,7 +16,7 @@
     border-radius: 1rem;
 }
 .field ::placeholder {
-    color: var(--white)
+    color: var(--white);
 }
 
 .submit {
